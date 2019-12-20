@@ -16,7 +16,20 @@ public interface ConfigureCheckProcessing extends CheckProcessing {
      * @param description this's configuration info
      */
     default void reportConfigureFound(String description) {
-        logger().info("check for {} ... found", description);
+        logger().info("check for ... {}", description);
+        logger().info("found");
+    }
+
+    /**
+     * Log successful detection configuration information in
+     * a fixed format.
+     *
+     * @param description  this's configuration info
+     * @param checkedValue checked value
+     */
+    default void reportConfigureFound(String description, Object checkedValue) {
+        logger().info("check for ... {}", description);
+        logger().info("found: {}", checkedValue);
     }
 
     /**
@@ -26,7 +39,20 @@ public interface ConfigureCheckProcessing extends CheckProcessing {
      * @param description this's configuration info
      */
     default void reportConfigureNotFound(String description) {
-        logger().error("check for {} ... not found", description);
+        logger().error("check for ... {}", description);
+        logger().error("not found");
+    }
+
+    /**
+     * Log failed detection configuration information in
+     * a fixed format.
+     *
+     * @param description  this's configuration info
+     * @param checkedValue checked value
+     */
+    default void reportConfigureNotFound(String description, Object checkedValue) {
+        logger().error("check for ... {}", description);
+        logger().error("not found: {}", checkedValue);
     }
 
     /**
@@ -36,6 +62,19 @@ public interface ConfigureCheckProcessing extends CheckProcessing {
      * @param description this's configuration info
      */
     default void reportConfigureError(String description) {
-        logger().error("check for {} ... not found", description);
+        logger().error("check for ... {}", description);
+        logger().error("error");
+    }
+
+    /**
+     * Log error detection configuration information in
+     * a fixed format.
+     *
+     * @param description  this's configuration info
+     * @param checkedValue checked value
+     */
+    default void reportConfigureError(String description, Object checkedValue) {
+        logger().error("check for ... {}", description);
+        logger().error("error: {}", checkedValue);
     }
 }
