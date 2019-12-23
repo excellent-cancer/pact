@@ -1,4 +1,4 @@
-package pact.component.lifecycle;
+package pact.cmp.lifecycle;
 
 /**
  *

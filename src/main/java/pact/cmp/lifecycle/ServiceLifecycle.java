@@ -1,4 +1,4 @@
-package pact.component.lifecycle;
+package pact.cmp.lifecycle;
 
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
