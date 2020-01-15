@@ -1,37 +1,30 @@
-package pact.cmp.lifecycle;
-
-import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
+package pact.component.lifecycle;
 
 /**
  * Common service lifecycle template, approximate order:
  * INITIALIZED -> STARTED -> CLOSED -> TERMINATING.
+ *
  * @author XyParaCrim
- * @thread-safe
  */
-public class ServiceLifecycle {
-
-    private static final AtomicReferenceFieldUpdater<ServiceLifecycle, State> STATE_UPDATER =
-            AtomicReferenceFieldUpdater.newUpdater(ServiceLifecycle.class, State.class, "state");
-
-    private volatile State state = State.INITIALIZED;
+public class ServiceLifecycle extends StateHolder {
 
     public boolean isStarted() {
-        return state == State.STARTED;
+        return state.isStarted();
     }
 
     public boolean isClose() {
-        return state == State.CLOSED;
+        return state.isClosed();
     }
 
     public boolean isTerminating() {
-        return state == State.TERMINATING;
+        return state.isTerminating();
     }
 
     public boolean tryStarted() {
         for ( ; ; ) {
             State hereState = state;
             if (hereState == State.INITIALIZED) {
-                if (STATE_UPDATER.compareAndSet(this, hereState, State.STARTED)) {
+                if (HANDLE_STATE.compareAndSet(this, hereState, State.STARTED)) {
                     return true;
                 }
                 continue;
@@ -56,7 +49,7 @@ public class ServiceLifecycle {
                 throw new IllegalStateException("Can't make state of Service terminating when it's closed");
             }
 
-            if (hereState == State.STARTED && STATE_UPDATER.compareAndSet(this, hereState, State.TERMINATING)) {
+            if (hereState == State.STARTED && HANDLE_STATE.compareAndSet(this, hereState, State.TERMINATING)) {
                 return true;
             }
         }
@@ -69,7 +62,7 @@ public class ServiceLifecycle {
                 return false;
             }
 
-            if (STATE_UPDATER.compareAndSet(this, state, State.CLOSED)) {
+            if (HANDLE_STATE.compareAndSet(this, state, State.CLOSED)) {
                 return true;
             }
         }

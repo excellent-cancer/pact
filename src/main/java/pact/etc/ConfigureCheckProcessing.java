@@ -39,7 +39,7 @@ public interface ConfigureCheckProcessing extends CheckProcessing {
      * @param description this's configuration info
      */
     default void reportConfigureNotFound(String description) {
-        logger().error("check for ... {}", description);
+        logger().info("check for ... {}", description);
         logger().error("not found");
     }
 
@@ -51,7 +51,7 @@ public interface ConfigureCheckProcessing extends CheckProcessing {
      * @param checkedValue checked value
      */
     default void reportConfigureNotFound(String description, Object checkedValue) {
-        logger().error("check for ... {}", description);
+        logger().info("check for ... {}", description);
         logger().error("not found: {}", checkedValue);
     }
 
@@ -62,7 +62,7 @@ public interface ConfigureCheckProcessing extends CheckProcessing {
      * @param description this's configuration info
      */
     default void reportConfigureError(String description) {
-        logger().error("check for ... {}", description);
+        logger().info("check for ... {}", description);
         logger().error("error");
     }
 
@@ -74,7 +74,7 @@ public interface ConfigureCheckProcessing extends CheckProcessing {
      * @param checkedValue checked value
      */
     default void reportConfigureError(String description, Object checkedValue) {
-        logger().error("check for ... {}", description);
+        logger().info("check for ... {}", description);
         logger().error("error: {}", checkedValue);
     }
 }
