@@ -2,26 +2,54 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>org.excellent-cancer</groupId>
         <artifactId>excellent-cancer-dependencies</artifactId>
         <version>1.0.0</version>
-        <relativePath>../excellent-cancer-dependencies</relativePath>
     </parent>
 
-    <artifactId>pact-core</artifactId>
-    <version>1.0.0</version>
+    <modelVersion>4.0.0</modelVersion>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <!-- module version -->
+        <pact.treasure.chest>1.0-SNAPSHOT</pact.treasure.chest>
+        <pact.annotations>1.0-SNAPSHOT</pact.annotations>
+    </properties>
+
+    <modules>
+        <module>pact-language</module>
+        <module>pact-annotations</module>
+        <module>pact-treasure-chest</module>
+    </modules>
+
+    <artifactId>pact</artifactId>
+
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- module dependencies -->
+            <dependency>
+                <groupId>org.excellent-cancer</groupId>
+                <artifactId>pact-annotations</artifactId>
+                <version>${pact.annotations}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.excellent-cancer</groupId>
+                <artifactId>pact-treasure-chest</artifactId>
+                <version>${pact.treasure.chest}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
