@@ -1,4 +1,4 @@
-package pact.error;
+package perishing.constraint.exception;
 
 import java.io.IOException;
 

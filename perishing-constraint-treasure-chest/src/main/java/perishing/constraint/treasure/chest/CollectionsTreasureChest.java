@@ -1,15 +1,18 @@
-package pact.support;
+package perishing.constraint.treasure.chest;
+
+import perishing.constraint.note.PatternRemark;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Collections Utilities.
+ * 提供对于集合的常用功能
  *
  * @author XyParaCrim
  */
-public class CollectionsSupport {
+@PatternRemark.Utilities
+public final class CollectionsTreasureChest {
 
     /**
      * Returns a fixed-size set backed by the specified array.

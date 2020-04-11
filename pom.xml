@@ -28,6 +28,9 @@
         <module>perishing-constraint-treasure-chest</module>
         <module>perishing-constraint-note</module>
         <module>perishing-constraint-language</module>
+        <module>perishing-constraint-concurrent</module>
+        <module>perishing-constraint-exception</module>
+        <module>perishing-constraint-io</module>
     </modules>
 
     <dependencyManagement>

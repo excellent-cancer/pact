@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  *
  * @author XyParaCrim
  */
-@Target(ElementType.TYPE)
+@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.SOURCE)
 @SuppressWarnings("unused")
 public @interface PatternRemark {
@@ -40,6 +40,13 @@ public @interface PatternRemark {
      */
     CompositeLevel composite() default CompositeLevel.NOT;
 
+    /**
+     * 是否是一个utilities类
+     *
+     * @return 是否是
+     */
+    boolean utils() default false;
+
     // 特别的模式类型
 
     enum CompositeLevel {
@@ -59,4 +66,15 @@ public @interface PatternRemark {
         NOT
     }
 
+    // 其他组合
+
+    /**
+     * @author XyParaCrim
+     * @see PatternRemark#utils()
+     */
+    @PatternRemark(utils = true)
+    @Target(ElementType.TYPE)
+    @Retention(RetentionPolicy.SOURCE)
+    @interface Utilities {
+    }
 }

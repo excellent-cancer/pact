@@ -1,4 +1,7 @@
-package pact.support;
+package perishing.constraint.io;
+
+import perishing.constraint.note.Unqualified;
+import perishing.constraint.treasure.chest.CollectionsTreasureChest;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +20,7 @@ import static java.nio.file.StandardOpenOption.WRITE;
  *
  * @author XyParaCrim
  */
+@Unqualified
 public final class FileSupport {
 
     /**
@@ -38,7 +42,7 @@ public final class FileSupport {
      * @return A lock object or null if the lock could not be acquired
      */
     public static FileLock acquireFileLockWithCreate(File file) {
-        return acquireFileLock(file, 1, CollectionsSupport.asSet(WRITE, CREATE));
+        return acquireFileLock(file, 1, CollectionsTreasureChest.asSet(WRITE, CREATE));
     }
 
     /**
@@ -60,13 +64,17 @@ public final class FileSupport {
                     --tryLockCount > 0) {
             }
         } catch (IOException collected) {
-            ExceptionSupport.collectIgnored(collected);
+            // ExceptionSupport.collectIgnored(collected);
         }
         return fileLock;
     }
 
     public static void mkdir(File file) throws IOException {
         mkdir(file, true);
+    }
+
+    public static void mkdir(File parent, File file) throws IOException {
+        mkdir(new File(parent, file.toString()), true);
     }
 
     public static void mkdir(File file, boolean ignoreExisted) throws IOException {
@@ -79,5 +87,32 @@ public final class FileSupport {
 
     public static void atomicMove(File source, File target) throws IOException {
         Files.move(source.toPath(), target.toPath(), StandardCopyOption.ATOMIC_MOVE);
+    }
+
+    public static void atomicMove(File source, File parent, File target) throws IOException {
+        Files.move(source.toPath(), parent.toPath().resolve(target.toPath()), StandardCopyOption.ATOMIC_MOVE);
+    }
+
+    public static File createTempFile(String suffix) throws IOException {
+        return File.createTempFile("temp", suffix);
+    }
+
+    public static void deleteFile(File location) throws IOException {
+        deleteFile(location, false);
+    }
+
+    public static void deleteFile(File location, boolean completed) throws IOException {
+        if (location.isDirectory() && completed) {
+            File[] children = location.listFiles();
+            if (children != null) {
+                for (File child : children) {
+                    deleteFile(child, true);
+                }
+            }
+        }
+    }
+
+    public static File resolve(File parent, File child) {
+        return new File(parent, child.toString());
     }
 }
