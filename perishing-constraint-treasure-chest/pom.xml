@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>perishing-constraint</artifactId>
+        <groupId>org.excellent-cancer</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>perishing-constraint-treasure-chest</artifactId>
+
+    <version>1.0-SNAPSHOT</version>
+
+    <description>
+        Encapsulated the commonly used function codes of java and provides a more
+        convenient design pattern
+    </description>
+
+</project>

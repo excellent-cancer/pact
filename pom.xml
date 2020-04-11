@@ -5,8 +5,9 @@
 
     <parent>
         <groupId>org.excellent-cancer</groupId>
-        <artifactId>excellent-cancer-dependencies</artifactId>
-        <version>1.0.0</version>
+        <artifactId>excellent-cancer-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../excellent-cancer-parent</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -15,32 +16,32 @@
 
     <properties>
         <!-- module version -->
-        <pact.treasure.chest>1.0-SNAPSHOT</pact.treasure.chest>
-        <pact.annotations>1.0-SNAPSHOT</pact.annotations>
+        <perishing.constraint.note>1.0-SNAPSHOT</perishing.constraint.note>
+        <perishing.constraint.treasure.chest>1.0-SNAPSHOT</perishing.constraint.treasure.chest>
     </properties>
 
-    <modules>
-        <module>pact-language</module>
-        <module>pact-annotations</module>
-        <module>pact-treasure-chest</module>
-    </modules>
-
-    <artifactId>pact</artifactId>
+    <artifactId>perishing-constraint</artifactId>
 
     <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>perishing-constraint-treasure-chest</module>
+        <module>perishing-constraint-note</module>
+        <module>perishing-constraint-language</module>
+    </modules>
 
     <dependencyManagement>
         <dependencies>
             <!-- module dependencies -->
             <dependency>
                 <groupId>org.excellent-cancer</groupId>
-                <artifactId>pact-annotations</artifactId>
-                <version>${pact.annotations}</version>
+                <artifactId>perishing-constraint-note</artifactId>
+                <version>${perishing.constraint.note}</version>
             </dependency>
             <dependency>
                 <groupId>org.excellent-cancer</groupId>
-                <artifactId>pact-treasure-chest</artifactId>
-                <version>${pact.treasure.chest}</version>
+                <artifactId>perishing-constraint-treasure-chest</artifactId>
+                <version>${perishing.constraint.treasure.chest}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

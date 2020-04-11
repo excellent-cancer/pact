@@ -60,6 +60,12 @@ buildNumber.properties
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 
+.idea/.name
+.idea/compiler.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
@@ -137,4 +143,3 @@ Temporary Items
 
 readme-ch.md
 
-/.idea/.name

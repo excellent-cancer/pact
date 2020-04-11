@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>perishing-constraint</artifactId>
+        <groupId>org.excellent-cancer</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>perishing-constraint-note</artifactId>
+
+    <version>1.0-SNAPSHOT</version>
+
+    <description>
+        Customize annotations and manage third-party annotation libraries to understand
+        program design ideas and intentions
+    </description>
+
+    <properties>
+        <jetbrains.version>RELEASE</jetbrains.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jetbrains</groupId>
+                <artifactId>annotations-java5</artifactId>
+                <version>${jetbrains.version}</version>
+                <scope>compile</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
