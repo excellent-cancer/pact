@@ -9,13 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>perishing-constraint-exception</artifactId>
+    <artifactId>perishing-constraint-web</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.excellent-cancer</groupId>
-            <artifactId>perishing-constraint-note</artifactId>
-        </dependency>
-    </dependencies>
+    <description>Standardize commonly used functions in web applications</description>
 
 </project>
