@@ -8,6 +8,8 @@ package perishing.constraint.web;
 public interface ResponseCode {
 
     /**
+     * 返回码的值
+     *
      * @return 返回返回码的值
      */
     int value();
