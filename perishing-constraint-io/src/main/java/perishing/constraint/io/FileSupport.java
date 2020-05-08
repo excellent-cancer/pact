@@ -102,14 +102,20 @@ public final class FileSupport {
     }
 
     public static void deleteFile(File location, boolean completed) throws IOException {
-        if (location.isDirectory() && completed) {
+        if (location.isDirectory()) {
             File[] children = location.listFiles();
             if (children != null) {
-                for (File child : children) {
-                    deleteFile(child, true);
+                if (completed) {
+                    for (File child : children) {
+                        deleteFile(child, true);
+                    }
+                    Files.delete(location.toPath());
                 }
+                return;
             }
         }
+
+        Files.delete(location.toPath());
     }
 
     public static File resolve(File parent, File child) {
