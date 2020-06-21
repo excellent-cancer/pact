@@ -7,11 +7,15 @@ import java.net.URL;
 
 /**
  * 提供对于集合的常用功能
+ *
+ * @author XyParaCrim
  */
 @PatternRemark.Utilities
 public final class ResourceTreasureChest {
 
     private static final String GIT_URL_PREFIX = "git:";
+
+    private static final String GIT_URL_SUFFIX = ".git";
 
     /**
      * 返回指定的资源位置是否是一个URL
@@ -36,12 +40,12 @@ public final class ResourceTreasureChest {
      * @return 位置是否符合GIT URL
      */
     public static boolean isGitUrl(String resourceLocation) {
-        return isUrl(resourceLocation, GIT_URL_PREFIX);
+        return isUrl(resourceLocation, GIT_URL_SUFFIX);
     }
 
-    private static boolean isUrl(String resourceLocation, String prefix) {
+    private static boolean isUrl(String resourceLocation, String suffix) {
         return resourceLocation != null &&
-                resourceLocation.startsWith(prefix) &&
+                resourceLocation.endsWith(suffix) &&
                 isUrl(resourceLocation);
     }
 

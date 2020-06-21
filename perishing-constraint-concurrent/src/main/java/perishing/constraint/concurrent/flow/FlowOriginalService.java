@@ -179,10 +179,10 @@ class FlowOriginalService extends AbstractService implements ExecutorService {
         if (security != null) {
             security.checkPermission(SHUTDOWN_PERM);
 
-            Iterable<AbstractWorker> workers = industry.workerService().workers();
+/*            Iterable<AbstractWorker> workers = industry.workerService().workers();
             for (AbstractWorker worker : workers) {
                 security.checkAccess(worker.getThread());
-            }
+            }*/
         }
     }
 

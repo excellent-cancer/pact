@@ -2,10 +2,8 @@ package perishing.constraint.treasure.chest;
 
 import perishing.constraint.note.PatternRemark;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -45,6 +43,43 @@ public final class CollectionsTreasureChest {
         return elements == null ?
                 Collections.emptyList() :
                 StreamSupport.stream(elements.spliterator(), false).collect(Collectors.toList());
+    }
+
+
+    /**
+     * 将{@link List<V>}类型转换成{@link Map}
+     *
+     * @param list 链表元素
+     * @param extract key提取函数
+     * @param <T> key类型
+     * @param <V> value类型
+     * @return 返回通过key映射list元素的map
+     */
+    public static <T, V> Map<T, V> asMapByList(List<V> list, Function<V, T> extract) {
+        Map<T, V> table = new HashMap<>(list.size());
+        for (V e : list) {
+            table.put(extract.apply(e), e);
+        }
+        return table;
+    }
+
+
+    /**
+     * 将{@link List<V>}类型转换成{@link Map}
+     *
+     * @param list 链表元素
+     * @param extract key提取函数
+     * @param <T> key类型
+     * @param <V> value类型
+     * @return 返回通过key映射list元素的map
+     */
+    public static <T, V> Map<T, List<V>> asFlatMapByList(List<V> list, Function<V, T> extract) {
+        Map<T, List<V>> table = new HashMap<>(list.size());
+        for (V e : list) {
+            table.computeIfAbsent(extract.apply(e), k -> new LinkedList<>()).add(e);
+        }
+
+        return table;
     }
 
 }

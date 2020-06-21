@@ -1,6 +1,5 @@
 package perishing.constraint.language.support;
 
-import org.jetbrains.annotations.NotNull;
 import perishing.constraint.treasure.chest.TreasureChest;
 
 import java.lang.reflect.InvocationTargetException;
@@ -49,7 +48,6 @@ class BundleCache {
      * @param locale 加载资源包的locale
      * @return 当前线程的资源包缓存
      */
-    @NotNull
     static BundleCache currentBundleCache(Locale locale) {
         Map<Locale, BundleCache> cacheMap = LOCAL.get();
 

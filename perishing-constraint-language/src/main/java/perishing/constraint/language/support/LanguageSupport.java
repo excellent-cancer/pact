@@ -1,6 +1,5 @@
 package perishing.constraint.language.support;
 
-import org.jetbrains.annotations.NotNull;
 import perishing.constraint.note.PatternRemark;
 
 import java.util.Locale;
@@ -20,7 +19,6 @@ public final class LanguageSupport {
      * @param <T>  语言资源包类型
      * @return 语言资源包实例
      */
-    @NotNull
     public static <T extends AbstractTranslationBundle> T getBundleFor(Class<T> type) {
         return BundleCache.currentBundleCache(Locale.getDefault()).get(type);
     }
@@ -32,8 +30,7 @@ public final class LanguageSupport {
      * @param <T>  语言资源包类型
      * @return 语言资源包实例
      */
-    @NotNull
-    public static <T extends AbstractTranslationBundle> T getBundleFor(Class<T> type, @NotNull Locale locale) {
+    public static <T extends AbstractTranslationBundle> T getBundleFor(Class<T> type, Locale locale) {
         return BundleCache.currentBundleCache(locale).get(type);
     }
 

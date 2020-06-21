@@ -32,6 +32,7 @@
         <module>perishing-constraint-exception</module>
         <module>perishing-constraint-io</module>
         <module>perishing-constraint-web</module>
+        <module>perishing-constraint-jdbc</module>
     </modules>
 
     <dependencyManagement>
