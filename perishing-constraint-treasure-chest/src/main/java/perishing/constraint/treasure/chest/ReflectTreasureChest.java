@@ -4,6 +4,7 @@ import lombok.NonNull;
 import perishing.constraint.note.PatternRemark;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Optional;
 import java.util.function.BiConsumer;
@@ -61,5 +62,13 @@ public final class ReflectTreasureChest {
                                                           @NonNull BiConsumer<T, Method> consumer) {
         Optional.ofNullable(method.getAnnotation(annotation))
                 .ifPresent(annotationTarget -> consumer.accept(annotationTarget, method));
+    }
+
+    public static <T> T newInstance(@NonNull Class<? extends T> type) {
+        try {
+            return type.getDeclaredConstructor().newInstance();
+        } catch (InstantiationException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

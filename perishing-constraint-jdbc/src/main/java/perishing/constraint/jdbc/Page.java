@@ -13,6 +13,10 @@ public class Page {
     private final int from;
 
     private final int count;
+    
+    public Page nullable() {
+        return this == UNLIMITED ? null : this;
+    }
 
     public static Page newPage(int pages, int count) {
         return new Page((pages - 1) * count, count);
@@ -23,6 +27,12 @@ public class Page {
         int parsedCount = Integer.parseInt(count);
 
         return newPage(parsedPages, parsedCount);
+    }
+
+    private static final Page UNLIMITED = new Page(-1, -1);
+
+    public static Page unlimited() {
+        return UNLIMITED;
     }
 
 }
