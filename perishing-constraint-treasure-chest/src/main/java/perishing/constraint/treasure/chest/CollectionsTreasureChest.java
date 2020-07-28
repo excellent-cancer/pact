@@ -1,6 +1,8 @@
 package perishing.constraint.treasure.chest;
 
 import perishing.constraint.note.PatternRemark;
+import perishing.constraint.treasure.chest.collection.Entry2;
+import perishing.constraint.treasure.chest.collection.FinalVariables;
 
 import java.util.*;
 import java.util.function.Function;
@@ -80,6 +82,14 @@ public final class CollectionsTreasureChest {
         }
 
         return table;
+    }
+
+    public static <K> FinalVariables<K> finalVariables(Map<K, Object> origin) {
+        return new FinalVariables<>(origin);
+    }
+
+    public static <K, V> Entry2<K, V> entry(K k, V v) {
+        return new Entry2<>(k, v);
     }
 
 }

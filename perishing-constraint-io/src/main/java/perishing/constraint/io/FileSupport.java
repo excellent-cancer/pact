@@ -9,7 +9,9 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.file.Files;
 import java.nio.file.OpenOption;
+import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 import java.util.Set;
 
 import static java.nio.file.StandardOpenOption.CREATE;
@@ -120,5 +122,22 @@ public final class FileSupport {
 
     public static File resolve(File parent, File child) {
         return new File(parent, child.toString());
+    }
+
+    /**
+     * 遍历文件夹的文件树，寻找所有相同扩展名的文件。
+     *
+     * @param location 开始遍历的文件夹位置
+     * @param extension 扩展名
+     * @param ignored 是否忽略前缀是点的文件和文件夹
+     * @return 所有相同扩展名的文件
+     * @throws IOException 遍历文件夹不正确或者无法遍历
+     */
+    public static List<Path> collectFilesFromFileTree(Path location, String extension, boolean ignored) throws IOException {
+        ExtensionFileVisitor visitor = new ExtensionFileVisitor(extension, ignored);
+
+        Files.walkFileTree(location, visitor);
+
+        return visitor.getFiles();
     }
 }
