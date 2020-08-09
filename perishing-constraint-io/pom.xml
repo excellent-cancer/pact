@@ -2,24 +2,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>perishing-constraint</artifactId>
         <groupId>org.excellent-cancer</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
     <artifactId>perishing-constraint-io</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
     <dependencies>
         <dependency>
             <groupId>org.excellent-cancer</groupId>
             <artifactId>perishing-constraint-treasure-chest</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.excellent-cancer</groupId>
             <artifactId>perishing-constraint-exception</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -28,6 +29,5 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
-
 
 </project>

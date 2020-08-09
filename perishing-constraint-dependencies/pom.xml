@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <parent>
+        <groupId>org.excellent-cancer</groupId>
+        <artifactId>excellent-cancer-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+
+    <artifactId>perishing-constraint-dependencies</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <lombok.version>1.18.12</lombok.version>
+        <junit.jupiter.version>5.5.2</junit.jupiter.version>
+        <perishing.constraint.io>1.0-SNAPSHOT</perishing.constraint.io>
+        <perishing.constraint.web>1.0-SNAPSHOT</perishing.constraint.web>
+        <perishing.constraint.jdbc>1.0-SNAPSHOT</perishing.constraint.jdbc>
+        <perishing.constraint.note>1.0-SNAPSHOT</perishing.constraint.note>
+        <perishing.constraint.language>1.0-SNAPSHOT</perishing.constraint.language>
+        <perishing.constraint.exception>1.0-SNAPSHOT</perishing.constraint.exception>
+        <perishing.constraint.concurrent>1.0-SNAPSHOT</perishing.constraint.concurrent>
+        <perishing.constraint.treasure.chest>1.0-SNAPSHOT</perishing.constraint.treasure.chest>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <optional>true</optional>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.excellent-cancer</groupId>
+                <artifactId>perishing-constraint-note</artifactId>
+                <version>${perishing.constraint.note}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.excellent-cancer</groupId>
+                <artifactId>perishing-constraint-treasure-chest</artifactId>
+                <version>${perishing.constraint.treasure.chest}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.excellent-cancer</groupId>
+                <artifactId>perishing-constraint-language</artifactId>
+                <version>${perishing.constraint.language}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.excellent-cancer</groupId>
+                <artifactId>perishing-constraint-exception</artifactId>
+                <version>${perishing.constraint.exception}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.excellent-cancer</groupId>
+                <artifactId>perishing-constraint-io</artifactId>
+                <version>${perishing.constraint.io}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.excellent-cancer</groupId>
+                <artifactId>perishing-constraint-web</artifactId>
+                <version>${perishing.constraint.web}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.excellent-cancer</groupId>
+                <artifactId>perishing-constraint-jdbc</artifactId>
+                <version>${perishing.constraint.jdbc}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.excellent-cancer</groupId>
+                <artifactId>perishing-constraint-concurrent</artifactId>
+                <version>${perishing.constraint.concurrent}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
