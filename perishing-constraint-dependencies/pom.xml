@@ -81,6 +81,12 @@
 
             <dependency>
                 <groupId>org.excellent-cancer</groupId>
+                <artifactId>perishing-constraint-web-flux</artifactId>
+                <version>${perishing.constraint.web}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.excellent-cancer</groupId>
                 <artifactId>perishing-constraint-jdbc</artifactId>
                 <version>${perishing.constraint.jdbc}</version>
             </dependency>

@@ -1,9 +1,7 @@
 package perishing.constraint.treasure.chest;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -59,5 +57,34 @@ public class TreasureChest {
         return new HashMap<>(127);
     }
 
+    /**
+     * 判断输入集合是否为空或者null
+     *
+     * @param collection 输入集合
+     * @return 判断输入集合是否为空或者 not null
+     */
+    public static boolean isEmptyCollection(Collection<?> collection) {
+        return collection == null || collection.isEmpty();
+    }
 
+    /**
+     * 判断输入集合是否不为空或者 not null
+     *
+     * @param collection 输入集合
+     * @return 判断输入集合是否不为空或者 not null
+     */
+    public static boolean hasElementCollection(Collection<?> collection) {
+        return collection != null && !collection.isEmpty();
+    }
+
+    /**
+     * 返回列表的第一个元素，但不作安全性检查
+     *
+     * @param list 列表
+     * @param <T> 列表元素类型
+     * @return 返回列表的第一个元素
+     */
+    public static <T> T firstFromList(List<T> list) {
+        return list.get(0);
+    }
 }

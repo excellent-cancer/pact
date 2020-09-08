@@ -28,6 +28,7 @@
         <module>perishing-constraint-exception</module>
         <module>perishing-constraint-concurrent</module>
         <module>perishing-constraint-treasure-chest</module>
+        <module>perishing-constraint-web-flux</module>
     </modules>
 
     <dependencyManagement>
