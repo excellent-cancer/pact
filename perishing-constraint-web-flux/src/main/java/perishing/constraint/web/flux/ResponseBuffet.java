@@ -15,6 +15,16 @@ import reactor.core.publisher.Mono;
 public final class ResponseBuffet {
 
     /**
+     * 转发已有的请求
+     *
+     * @param format 已有的请求
+     * @return 回复方法
+     */
+    public static Mono<ServerResponse> forward(ResponseFormat<?> format) {
+        return assemblyOkResponse(format);
+    }
+
+    /**
      * 成功操作回复
      *
      * @return 回复方法
@@ -30,7 +40,7 @@ public final class ResponseBuffet {
      * @return 回复方法
      */
     public static <T> Mono<ServerResponse> allRight(T data) {
-        return assemblyOkResponse(ResponseFormat.success());
+        return assemblyOkResponse(ResponseFormat.success(data));
     }
 
     /**
